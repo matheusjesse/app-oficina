@@ -1,6 +1,6 @@
 import React from "react";
 import ContainerHome from '../../style/indexStyle';
-import {CarRepairCard} from '../../components/CarRepairCard';
+import CarRepairCard from '../../components/CarRepairCard';
 
 export { Page };
 
