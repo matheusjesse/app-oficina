@@ -1,7 +1,7 @@
-const clientData = [
+const clientDataMock = [
     {
         "id": 1,
-        "nome": "João da Silva",
+        "nome": "João",
         "veiculos": [
           {
             "marca": "Volkswagen",
@@ -13,7 +13,7 @@ const clientData = [
       },
       {
         "id": 2,
-        "nome": "Maria Oliveira",
+        "nome": "Maria",
         "veiculos": [
           {
             "marca": "Toyota",
@@ -31,7 +31,7 @@ const clientData = [
       },
       {
         "id": 3,
-        "nome": "Juliana Rodrigues",
+        "nome": "Juliana",
         "veiculos": [
           {
             "marca": "Chevrolet",
@@ -43,7 +43,7 @@ const clientData = [
       },
       {
         "id": 4,
-        "nome": "Ricardo Oliveira",
+        "nome": "Ricardo",
         "veiculos": [
           {
             "marca": "Fiat",
@@ -60,3 +60,5 @@ const clientData = [
         ]
       }
 ]
+
+export default clientDataMock;

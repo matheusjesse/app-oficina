@@ -5,8 +5,7 @@ import { Link } from '../../renderer/Link'
 function CarRepairCard() {
   return (
     <Link className="navitem" href="/findClient">
-    <Container>
-                 
+    <Container>                 
         <Title>Novo Conserto</Title>
         <PlusCircleIcon />
     </Container>

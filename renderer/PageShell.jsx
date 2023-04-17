@@ -1,7 +1,7 @@
 import React from 'react'
 import './PageShell.css'
 import { PageContextProvider } from './usePageContext'
-// import { Link } from './Link'
+import DataProvider from '../context/DataProvider'
 
 export { PageShell }
 
@@ -9,7 +9,9 @@ function PageShell({ pageContext, children }) {
   return (
     <React.StrictMode>
       <PageContextProvider pageContext={pageContext}>
-          <Content>{children}</Content>
+          <DataProvider>
+            <Content>{children}</Content>
+          </DataProvider>
       </PageContextProvider>
     </React.StrictMode>
   )
