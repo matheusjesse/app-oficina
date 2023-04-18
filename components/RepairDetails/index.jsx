@@ -17,8 +17,6 @@ function RepairDetails() {
         setdetailPage,
         setCarSelected,
         productsData,
-        repairOrders,
-        setRepairOrders
     } = useContext(DataContext);
 
     const [productInput, setProductInput] = useState("");
@@ -90,21 +88,25 @@ function RepairDetails() {
         const dia = date.getDate();
         const resultDate = dia+"/"+month+"/"+year;
         const orderData = {
+            id: Math.floor(Math.random() * 100000) + 1,
             name: nome,
             car: modelo,
             year: ano,
             parts: orderCart,
             workCommission,
+            mechanicName,
             description: descriptionInput,
             data: resultDate,
             hour:  time,
             status: "pendente",
             total: totalPrice,
         }
-        setRepairOrders([
-            ...repairOrders,
-            orderData
-        ])
+        const localKey = localStorage.getItem("repairOrders")
+        if(!localKey) localStorage.setItem("repairOrders", "[]");
+
+        const localData = JSON.parse(localStorage.getItem("repairOrders"));
+        const newData = [...localData, orderData];
+        localStorage.setItem("repairOrders", JSON.stringify(newData));
         closeDetails();
     }
 

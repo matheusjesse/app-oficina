@@ -3,9 +3,10 @@ import Container from './style';
 import FindClientBar from '../../components/FindClientBar';
 import ClientSection from '../../components/ClientSection';
 
-export { Page };
+export { Page }
 
 function Page() {
+
   return (
     <Container>
       <FindClientBar />
