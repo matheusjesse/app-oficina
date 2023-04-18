@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import {PlusCircle} from '@styled-icons/octicons'
 
-
 const Container = styled.div`
     width: 228px;
     height: 308px;

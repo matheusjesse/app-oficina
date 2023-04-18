@@ -1,5 +1,6 @@
 import React from "react";
 import Container from './style';
+import OrdersBar from '../../components/OrdersBar';
 
 export { Page }
 
@@ -7,7 +8,7 @@ function Page() {
 
   return (
     <Container>
-        <h1>Orders</h1>
+        <OrdersBar />
     </Container>
   );
 }
