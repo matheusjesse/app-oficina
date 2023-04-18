@@ -7,7 +7,6 @@ function FindClientBar() {
     const {
         clientData,
         setCurrentClient,
-        notFound,
         setNotFound
     } = useContext(DataContext);
 

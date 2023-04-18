@@ -2,24 +2,30 @@ import React,  { useContext } from 'react'
 import Container, {ClientPersonalInfo} from './style';
 import LogoImage from '../../assets/cabecalho.png';
 import DataContext from "../../context/DataContext";
-
+import RepairDetails from '../../components/RepairDetails'
 function ClientSection() {
-
+    
     const {
-        clientData,
         currentClient,
-        setCurrentClient,
         notFound,
-        setNotFound
+        setCarSelected,
+        carSelected,
+        detailPage,
+        setdetailPage
     } = useContext(DataContext);
     
     const EmptySearch = () => {
         return(
           <div></div>
         )
-      }
+    }
 
-  return (    
+    const redirectDetails = (item) => {
+        setCarSelected(item);
+        setdetailPage(true);
+    }
+
+  return (
     <Container>
         {
             notFound ? <EmptySearch /> :
@@ -46,15 +52,21 @@ function ClientSection() {
                                     <td>{item.ano}</td>
                                     <td>{item.placa}</td>
                                     <td>
-                                        <button type="button">solicitar</button>
+                                        <button 
+                                            type="button"
+                                            onClick={() => redirectDetails(item)}
+                                        >
+                                            solicitar
+                                        </button>
                                     </td>
                                 </tr>                
                             ))
                         }
-                          </tbody>                   
-                        </table>
+                    </tbody>                   
+                </table>
             </>
         }
+        { detailPage && <RepairDetails />}
     </Container>
   )
 }
