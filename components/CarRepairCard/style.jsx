@@ -62,6 +62,7 @@ const PlusCircleIcon = styled(PlusCircle)`
 
 const Title = styled.h1`
     text-align: center;
+    color: white;
     
 `
 

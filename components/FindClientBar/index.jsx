@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import Container, {Text, Form} from './style';
 import DataContext from "../../context/DataContext";
+import { Link } from '../../renderer/Link';
 
 function FindClientBar() {
 
@@ -28,6 +29,7 @@ function FindClientBar() {
 
   return (
     <Container>
+        <div className="navMain">
         <Text>Achar Cliente</Text>
         <Form>
             <label htmlFor="clientName">
@@ -52,6 +54,10 @@ function FindClientBar() {
         >
             Scanear QR Code
         </button>
+        </div>
+        <Link className="navitem" href="/">
+            <span className='navHome'>Início</span>
+        </Link>
     </Container>
   )
 }

@@ -4,7 +4,7 @@ const Container = styled.div`
     width: 100vw;
     height: 80px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     background: rgb(71,9,121);
     background: linear-gradient(90deg, rgba(71,9,121,1) 1%, rgba(61,69,158,1) 50%, rgba(130,168,251,1) 100%);
@@ -37,6 +37,17 @@ const Container = styled.div`
         margin-right: 4px;
     }
 
+    .navMain {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navHome {
+        border-bottom: 2px solid white;
+        font-size: 24px;
+        font-weight: 600;
+    }
 `
 
 const Text = styled.span`

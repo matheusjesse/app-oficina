@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 import Container, {SearchIcon, Title} from './style';
 import DataContext from "../../context/DataContext";
+import { Link } from '../../renderer/Link';
 
 function OrdersBar() {
     const {
@@ -27,6 +28,7 @@ function OrdersBar() {
 
   return (
     <Container>
+        <div className="navMain">
         <Title>Identificação de Consertos</Title>
         <label htmlFor="mechanicName">
             Nome do Mecânico:
@@ -44,6 +46,10 @@ function OrdersBar() {
         >
             <SearchIcon />
         </button>
+        </div>
+        <Link className="navitem" href="/">
+            <span className='navHome'>Início</span>
+        </Link>
     </Container>
   )
 }

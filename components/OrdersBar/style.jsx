@@ -5,7 +5,7 @@ const Container = styled.div`
     width: 100vw;
     height: 80px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
     background: rgb(71,9,121);
@@ -59,6 +59,18 @@ const Container = styled.div`
         border-radius: 8px;
         height: 28px;
         margin-left: 6px;
+    }
+
+    .navMain {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navHome {
+        border-bottom: 2px solid white;
+        font-size: 24px;
+        font-weight: 600;
     }
 `
 

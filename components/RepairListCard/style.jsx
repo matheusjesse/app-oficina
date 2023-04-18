@@ -62,7 +62,7 @@ const LinkIcon = styled(LinkAlt)`
 
 const Title = styled.h1`
     text-align: center;
-    
+    color: white;
 `
 
 export default Container;
