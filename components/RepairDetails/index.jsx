@@ -15,7 +15,9 @@ function RepairDetails() {
         carSelected,
         setdetailPage,
         setCarSelected,
-        productsData
+        productsData,
+        repairOrders,
+        setRepairOrders
     } = useContext(DataContext);
 
     const [productInput, setProductInput] = useState("");
@@ -56,7 +58,6 @@ function RepairDetails() {
     }, [orderCart])    
 
     const totalWorkComission = (value) => {
-        console.log(value)
         if(value !== "" ){
             setWorkCommission(parseFloat(value));
         }
@@ -69,8 +70,40 @@ function RepairDetails() {
         }        
     }
 
-    const buttonValidation = () => {
-
+    const finishorder = () => {
+        const { nome } = currentClient;
+        const { modelo, ano} = carSelected;
+        function addZero(i) {
+            if (i < 10) {i = "0" + i}
+            return i;
+        }
+        const date = new Date();
+        // Hora
+        const h = addZero(date.getHours());
+        const m = addZero(date.getMinutes());
+        const s = addZero(date.getSeconds());
+        const time = h + ":" + m + ":" + s;
+        //DATE
+        const year = date.getFullYear();
+        const month = date.getMonth()+1;
+        const dia = date.getDate();
+        const resultDate = dia+"/"+month+"/"+year;
+        const orderData = {
+            name: nome,
+            car: modelo,
+            year: ano,
+            parts: orderCart,
+            workCommission,
+            description: descriptionInput,
+            data: resultDate,
+            hour:  time,
+            status: "pendente",
+            total: totalPrice,
+        }
+        setRepairOrders([
+            ...repairOrders,
+            orderData
+        ])
     }
 
     useEffect(() => {
@@ -173,6 +206,7 @@ function RepairDetails() {
             <button 
                 type="button"
                 disabled={confirmationDisabled}
+                onClick={finishorder}
             >
                 Confirmar
             </button>
