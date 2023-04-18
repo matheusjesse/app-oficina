@@ -8,7 +8,7 @@ import Container, {
     IconContainer
 } from './style';
 import DataContext from "../../context/DataContext";
-import { Link } from '../../renderer/Link';
+
 function RepairDetails() {
     
     const {
@@ -105,6 +105,7 @@ function RepairDetails() {
             ...repairOrders,
             orderData
         ])
+        closeDetails();
     }
 
     useEffect(() => {
@@ -204,15 +205,13 @@ function RepairDetails() {
                 />
             </label>
             <span>{`Total: R$ ${totalPrice.toFixed(2)}`}</span>
-            <Link className="navitem" href="/">
-                <button 
-                    type="button"
-                    disabled={confirmationDisabled}
-                    onClick={finishorder}
-                >
-                    Confirmar
-                </button>
-            </Link>
+            <button 
+                type="button"
+                disabled={confirmationDisabled}
+                onClick={finishorder}
+            >
+                Confirmar
+            </button>
         </OficinaContainer>
     </Container>
   )
