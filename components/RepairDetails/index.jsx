@@ -8,6 +8,7 @@ import Container, {
     IconContainer
 } from './style';
 import DataContext from "../../context/DataContext";
+import { Link } from '../../renderer/Link';
 function RepairDetails() {
     
     const {
@@ -203,13 +204,15 @@ function RepairDetails() {
                 />
             </label>
             <span>{`Total: R$ ${totalPrice.toFixed(2)}`}</span>
-            <button 
-                type="button"
-                disabled={confirmationDisabled}
-                onClick={finishorder}
-            >
-                Confirmar
-            </button>
+            <Link className="navitem" href="/">
+                <button 
+                    type="button"
+                    disabled={confirmationDisabled}
+                    onClick={finishorder}
+                >
+                    Confirmar
+                </button>
+            </Link>
         </OficinaContainer>
     </Container>
   )
