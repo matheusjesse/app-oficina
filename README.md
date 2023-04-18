@@ -6,6 +6,8 @@ O style da aplicação foi feito usando styled-components.
 
 Para fazer o gerenciamento dos dados ultilizei **Context** e **localStorage**
 
+Também fiz o mock de dados de clientes e de produtos para o funcionamento da aplicação.
+
 
 
 
