@@ -22,9 +22,10 @@ function RepairDetails() {
     const [orderCart, setOrderCart] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
     const [workCommission, setWorkCommission] = useState(0);
-    const [comissionDisable, setComissionDisabled] = useState(false);
+    const [comissionDisabled, setComissionDisabled] = useState(false);
     const [descriptionInput, setDescriptionInput] = useState("");
-
+    const [confirmationDisabled, setConfirmationDisabled] = useState(true);
+    const [mechanicName, setMechanicName] = useState("");
     const closeDetails = () => {
         setCarSelected({});
         setdetailPage(false);
@@ -55,15 +56,32 @@ function RepairDetails() {
     }, [orderCart])    
 
     const totalWorkComission = (value) => {
-        if(value !== ""){
+        console.log(value)
+        if(value !== "" ){
             setWorkCommission(parseFloat(value));
         }
     }
 
     const totalValueCount = () => {
-        setComissionDisabled(true);
-        setTotalPrice(totalPrice + workCommission)
+        if(workCommission > 0) {
+            setComissionDisabled(true);
+            setTotalPrice(totalPrice + workCommission)
+        }        
     }
+
+    const buttonValidation = () => {
+
+    }
+
+    useEffect(() => {
+        setConfirmationDisabled(true)
+        const validMechanicName = mechanicName.length > 3;
+        const comissionValidation = comissionDisabled === true;
+        if(validMechanicName && comissionValidation) {
+            setConfirmationDisabled(!confirmationDisabled);
+        }
+    }, [comissionDisabled, mechanicName])   
+
 
   return (
     <Container>
@@ -79,8 +97,14 @@ function RepairDetails() {
         <OficinaContainer>
             <Title>Oficina</Title>
             <label htmlFor="mechanicName">
-                Mecânico(a):
-                <input type="text" id="mechanicName" name="mechanicName" />
+                Mecânico(a)*:
+                <input 
+                    type="text"
+                    id="mechanicName"
+                    name="mechanicName"
+                    value={mechanicName}
+                    onChange={({target}) => setMechanicName(target.value)}
+                />
             </label>
             <label htmlFor="products">
                 Peças:
@@ -118,20 +142,21 @@ function RepairDetails() {
                 </tbody>
             </table>
             <label htmlFor="workCommission">
-                Mão de obra
+                Mão de obra*
                 <input 
                     type="number" 
                     min="0.00" 
                     id="workCommission"
                     name="workCommission"
                     step="0.01"
-                    disabled={comissionDisable}
+                    disabled={comissionDisabled}
                     onChange={({target}) => totalWorkComission(target.value)}
                 />
             </label>
             <button 
                 type="button"
                 onClick={totalValueCount}
+                disabled={comissionDisabled}
             >
                 Confirmar
             </button>
@@ -145,6 +170,12 @@ function RepairDetails() {
                 />
             </label>
             <span>{`Total: R$ ${totalPrice.toFixed(2)}`}</span>
+            <button 
+                type="button"
+                disabled={confirmationDisabled}
+            >
+                Confirmar
+            </button>
         </OficinaContainer>
     </Container>
   )
