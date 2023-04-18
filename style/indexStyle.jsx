@@ -21,11 +21,11 @@ const ContainerHome = styled.div`
 const CardContainer = styled.div`
     display: flex;
 `
-const imageContainer = styled.div`
+const ImageContainer = styled.div`
     
 `
 
 export default ContainerHome;
 
-export {CardContainer, imageContainer}
+export {CardContainer, ImageContainer}
 

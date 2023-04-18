@@ -1,5 +1,5 @@
 import React from "react";
-import ContainerHome, {CardContainer, imageContainer} from '../../style/indexStyle';
+import ContainerHome, {CardContainer, ImageContainer} from '../../style/indexStyle';
 import CarRepairCard from '../../components/CarRepairCard';
 import RepairListCard from '../../components/RepairListCard';
 import LogoUltracar from '../../assets/logoUltracar.png';
@@ -10,9 +10,9 @@ function Page() {
   
   return (
     <ContainerHome>
-      <imageContainer>
+      <ImageContainer>
         <img src={LogoUltracar} alt="LogoUltracar" />
-      </imageContainer>
+      </ImageContainer>
       <CardContainer>
         <CarRepairCard />
         <RepairListCard />

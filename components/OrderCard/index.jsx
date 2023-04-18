@@ -50,7 +50,7 @@ function OrderCard({data}) {
                 </tbody>
             </table>
             <span>{`Mão de obra:  R$ ${data.workCommission.toFixed(2)}`}</span>  
-            <span>{`Deiscrição Adicional: ${data.description}`}</span>     
+            <span className='descriptionContainer'>{`Deiscrição Adicional: ${data.description}`}</span>     
             <span>{`Finalização: ${data.status}`}</span> 
             <span>{`Início: ${data.startDate.date} | ${data.startDate.hour}`}</span>     
             {

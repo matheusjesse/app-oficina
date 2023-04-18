@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-import Container from './style';
+import Container, {CarIcon} from './style';
 import OrderCard from '../OrderCard';
 import DataContext from "../../context/DataContext";
 function OrderSection() {
@@ -9,16 +9,23 @@ function OrderSection() {
   } = useContext(DataContext);
 
   useEffect(() => {
-    // const localKey = localStorage.getItem("repairOrders");
-    // if(!localKey) localStorage.setItem("repairOrders", "[]");
-    // const localData = JSON.parse(localStorage.getItem("repairOrders"));
     setOrdersData(mechanicOrder);
   },[mechanicOrder])
+
+  
+  const EmptySearch = () => {
+    return(
+      <div className='emptySearch'>
+        <div>Digite nome do mecânico(a) a cima</div>
+        <CarIcon />
+      </div>
+    )
+  }
 
   return (
     <Container>
       {
-        ordersData.length > 0 && (
+        ordersData.length === 0 ? <EmptySearch /> : (
           ordersData.map((item, index) => 
             <OrderCard key={index} data={item}/>          
           )

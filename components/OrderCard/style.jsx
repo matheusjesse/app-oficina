@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
         width: 360px;
-        height: 480px;
+        height: 530px;
         padding: 12px;
         background: rgb(71,9,121);
         background: linear-gradient(90deg, rgba(71,9,121,1) 1%, rgba(61,69,158,1) 50%, rgba(130,168,251,1) 100%);   
@@ -32,6 +32,11 @@ const OficinaContainer = styled.div`
     span {
         font-size: 18px;
         margin-top: 4px;
+    }
+    
+    .descriptionContainer {
+        height: 63px;
+        font-size: 14px;
     }
 
     th {

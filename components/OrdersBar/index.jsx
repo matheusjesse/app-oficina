@@ -19,7 +19,10 @@ function OrdersBar() {
             setMechanicOrder(mechanicOrder);
             setMechanicNameInput("")
         }
-        
+        if(mechanicNameInput === "") {
+            setMechanicOrder([]);
+        }  
+
     }
 
   return (

@@ -89,14 +89,15 @@ function StatusSwap({data}) {
     
   return (
     <Container>
+        <div className="containerSection">
         <IconContainer>
             <CloseIcon onClick={closeOrder}/>
         </IconContainer>
         <ClientContainer>
             <Title>Cliente</Title>
-            <ClientInfo>{`Nome${data.name}`}</ClientInfo>
-            <ClientInfo>{`Carro${data.car}`}</ClientInfo>
-            <ClientInfo>{`Carro${data.year}`}</ClientInfo>
+            <ClientInfo>{`Nome: ${data.name}`}</ClientInfo>
+            <ClientInfo>{`Carro: ${data.car}`}</ClientInfo>
+            <ClientInfo>{`Carro: ${data.year}`}</ClientInfo>
         </ClientContainer>
         <OficinaContainer>
             <Title>Oficina</Title>
@@ -104,7 +105,7 @@ function StatusSwap({data}) {
             <table>
                 <thead>
                     <tr>
-                        <th scope="col">Nome</th>
+                        <th scope="col">Peça</th>
                         <th scope="col">Preço</th>
                     </tr>
                 </thead>
@@ -121,11 +122,11 @@ function StatusSwap({data}) {
                     }
                 </tbody>
             </table>
-            <span>{`Mão de obra: ${data.workCommission}`}</span>  
-            <span>{`Deiscrição Adicional: ${data.description}`}</span>     
+            <span>{`Mão de obra: R$ ${data.workCommission.toFixed(2)}`}</span>  
+            <span className='descriptionContainer'>{`Deiscrição Adicional: ${data.description}`}</span>     
             <span>{`Finalização: ${data.status}`}</span> 
             <span>{`Início: ${data.startDate.date} | ${data.startDate.hour}`}</span>     
-            <span>{`Total: R$ ${data.total.toFixed(2)}`}</span>
+            <span className='totalText'>{`Total: R$ ${data.total.toFixed(2)}`}</span>
             {
                 data.status === "finalizado" && (
                     <span>{`Finalização: ${data.finishDate.date} | ${data.finishDate.hour}`}</span>     
@@ -144,6 +145,7 @@ function StatusSwap({data}) {
                 )
             }
         </ OficinaContainer>
+        </div>
     </Container>
   )
 }
