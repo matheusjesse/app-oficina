@@ -1,8 +1,8 @@
 import React,  { useContext } from 'react'
-import Container, {ClientPersonalInfo} from './style';
+import Container, {ClientPersonalInfo, CarIcon} from './style';
 import LogoImage from '../../assets/cabecalho.png';
 import DataContext from "../../context/DataContext";
-import RepairDetails from '../../components/RepairDetails'
+import RepairDetails from '../RepairDetails'
 function ClientSection() {
     
     const {
@@ -16,7 +16,9 @@ function ClientSection() {
     
     const EmptySearch = () => {
         return(
-          <div></div>
+          <div>
+            <CarIcon />
+          </div>
         )
     }
 
@@ -56,7 +58,7 @@ function ClientSection() {
                                             type="button"
                                             onClick={() => redirectDetails(item)}
                                         >
-                                            solicitar
+                                            Solicitar Reparo
                                         </button>
                                     </td>
                                 </tr>                
