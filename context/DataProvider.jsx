@@ -10,6 +10,8 @@ function DataProvider({ children }) {
   const [carSelected, setCarSelected] = useState({});
   const [detailPage, setdetailPage] = useState(false);
   const [productsData, setProductsData] = useState(productMock)
+  const [repairOrders, setRepairOrders] = useState([]);
+
   const context = useMemo(() => ({
     clientData,
     setClientData,
@@ -22,7 +24,9 @@ function DataProvider({ children }) {
     detailPage,
     setdetailPage,
     productsData,
-    setProductsData
+    setProductsData,
+    repairOrders,
+    setRepairOrders
   }), [
     clientData,
     currentClient,
@@ -33,7 +37,9 @@ function DataProvider({ children }) {
     setCarSelected,
     detailPage,
     setdetailPage,
-    productsData
+    productsData,
+    repairOrders,
+    setRepairOrders
   ]);
 
   return (
