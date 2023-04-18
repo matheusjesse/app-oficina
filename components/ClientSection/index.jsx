@@ -16,7 +16,8 @@ function ClientSection() {
     
     const EmptySearch = () => {
         return(
-          <div>
+          <div className='emptySearch'>
+            <div>Digite nome do cliente a cima</div>
             <CarIcon />
           </div>
         )

@@ -34,12 +34,24 @@ const Container = styled.div`
         font-weight: 700;
         cursor: pointer;
     }
+
+    .emptySearch {
+        display: flex;
+        flex-wrap: wrap;
+        height: 400px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-weight: 700;
+        font-size: 30px;
+        color: #b6b6b6;
+    }
 `
 
 const CarIcon = styled(Car)`
-  color: white;
-  width: 40px;
-  height: 40px;
+  color: #b6b6b6;
+  width: 100px;
+  height: 100px;
 `
 
 const ClientPersonalInfo = styled.div`
