@@ -7,9 +7,9 @@ function OrdersBar() {
 
   return (
     <Container>
-        <Title>Identificação de Concertos</Title>
+        <Title>Identificação de Consertos</Title>
         <label htmlFor="mechanicName">
-            Nome do Mecânico
+            Nome do Mecânico:
             <input 
                 type="text"
                 id="mechanicName"

@@ -37,24 +37,24 @@ function ClientSection() {
                       <img src={LogoImage} alt="Utracar Logo" />
                       <span>{currentClient.nome}</span>
                 </ClientPersonalInfo>
-                <table title="Veículos do Cliente">
+                <table title="Veículos do Cliente" className="tableTag">
                     <thead>
                         <tr>
-                            <th>Marca</th>
-                            <th>Modelo</th>
-                            <th>Ano</th>
-                            <th>Placa</th>
+                            <th className='thTag'>Marca</th>
+                            <th className='thTag'>Modelo</th>
+                            <th className='thTag'>Ano</th>
+                            <th className='thTag'>Placa</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             currentClient.veiculos.map((item) =>(
                                 <tr key={item.placa}>
-                                    <td>{item.marca}</td>
-                                    <td>{item.modelo}</td>
-                                    <td>{item.ano}</td>
-                                    <td>{item.placa}</td>
-                                    <td>
+                                    <td className="tdTag">{item.marca}</td>
+                                    <td className="tdTag">{item.modelo}</td>
+                                    <td className="tdTag">{item.ano}</td>
+                                    <td className="tdTag">{item.placa}</td>
+                                    <td className="tdTag">
                                         <button 
                                             type="button"
                                             onClick={() => redirectDetails(item)}

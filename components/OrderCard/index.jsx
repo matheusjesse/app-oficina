@@ -22,9 +22,9 @@ function OrderCard({data}) {
     <Container>
         <ClientContainer>
             <Title>Cliente</Title>
-            <ClientInfo>{`Nome${data.name}`}</ClientInfo>
-            <ClientInfo>{`Carro${data.car}`}</ClientInfo>
-            <ClientInfo>{`Carro${data.year}`}</ClientInfo>
+            <ClientInfo>{`Nome: ${data.name}`}</ClientInfo>
+            <ClientInfo>{`Carro: ${data.car}`}</ClientInfo>
+            <ClientInfo>{`Carro: ${data.year}`}</ClientInfo>
         </ClientContainer>
         <OficinaContainer>
             <Title>Oficina</Title>
@@ -32,7 +32,7 @@ function OrderCard({data}) {
             <table>
                 <thead>
                     <tr>
-                        <th scope="col">Nome</th>
+                        <th scope="col">Peça</th>
                         <th scope="col">Preço</th>
                     </tr>
                 </thead>
@@ -49,16 +49,16 @@ function OrderCard({data}) {
                     }
                 </tbody>
             </table>
-            <span>{`Mão de obra: ${data.workCommission}`}</span>  
+            <span>{`Mão de obra:  R$ ${data.workCommission.toFixed(2)}`}</span>  
             <span>{`Deiscrição Adicional: ${data.description}`}</span>     
             <span>{`Finalização: ${data.status}`}</span> 
             <span>{`Início: ${data.startDate.date} | ${data.startDate.hour}`}</span>     
-            <span>{`Total: R$ ${data.total.toFixed(2)}`}</span>
             {
                 data.status === "finalizado" && (
                     <span>{`Finalização: ${data.finishDate.date} | ${data.finishDate.hour}`}</span>     
-                )
+                    )
             }
+            <span className='totalText'>{`Total: R$ ${data.total.toFixed(2)}`}</span>
             {
                 data.status === "pendente" && (
                     <button 

@@ -124,14 +124,15 @@ function RepairDetails() {
 
   return (
     <Container>
+        <div className="containerSection">
         <IconContainer>
             <CloseIcon onClick={closeDetails}/>
         </IconContainer>
         <ClientContainer>
             <Title>Cliente</Title>
-            <ClientInfo>{`Nome${currentClient.nome}`}</ClientInfo>
-            <ClientInfo>{`Carro${carSelected.modelo}`}</ClientInfo>
-            <ClientInfo>{`Carro${carSelected.ano}`}</ClientInfo>
+            <ClientInfo>{`Nome: ${currentClient.nome}`}</ClientInfo>
+            <ClientInfo>{`Carro: ${carSelected.modelo}`}</ClientInfo>
+            <ClientInfo>{`Carro: ${carSelected.ano}`}</ClientInfo>
         </ClientContainer>
         <OficinaContainer>
             <Title>Oficina</Title>
@@ -144,22 +145,25 @@ function RepairDetails() {
                     value={mechanicName}
                     onChange={({target}) => setMechanicName(target.value)}
                 />
-            </label>
-            <label htmlFor="products">
-                Peças:
-                <input 
-                    type="text" 
-                    id="products" 
-                    name="products"
-                    onChange={({target}) => setProductInput(target.value)} 
-                />
-            </label>
-            <button 
-                type="button"
-                onClick={addToCart}
-            >
-                Adicionar
-            </button>
+            </label> 
+            <div className="partsAddSection">          
+                <label htmlFor="products">
+                    Peças:
+                    <input 
+                        type="text" 
+                        id="products" 
+                        name="products"
+                        onChange={({target}) => setProductInput(target.value)} 
+                    />
+                </label>
+                <button 
+                    type="button"
+                    onClick={addToCart}
+                    className='buttonAdd'
+                >
+                    Adicionar
+                </button>
+            </div> 
             <table>
                 <thead>
                     <tr>
@@ -167,7 +171,7 @@ function RepairDetails() {
                         <th scope="col">Preço</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className='tableBody'>
                     {
                         orderCart.length > 0 && (
                             orderCart.map((element) =>
@@ -180,25 +184,28 @@ function RepairDetails() {
                     }
                 </tbody>
             </table>
-            <label htmlFor="workCommission">
-                Mão de obra*
-                <input 
-                    type="number" 
-                    min="0.00" 
-                    id="workCommission"
-                    name="workCommission"
-                    step="0.01"
+            <div>
+                <label htmlFor="workCommission" className='commissionLabel'>
+                    Mão de obra*
+                    <input 
+                        type="number" 
+                        min="0.00" 
+                        id="workCommission"
+                        name="workCommission"
+                        step="0.01"
+                        disabled={comissionDisabled}
+                        onChange={({target}) => totalWorkComission(target.value)}
+                    />
+                </label>
+                <button 
+                    type="button"
+                    onClick={totalValueCount}
                     disabled={comissionDisabled}
-                    onChange={({target}) => totalWorkComission(target.value)}
-                />
-            </label>
-            <button 
-                type="button"
-                onClick={totalValueCount}
-                disabled={comissionDisabled}
-            >
-                Confirmar
-            </button>
+                    className='buttonAdd'
+                >
+                    Confirmar
+                </button>
+            </div>
             <label htmlFor="descriptionInfo">
                 Deiscrição Adicional
                 <input 
@@ -208,7 +215,7 @@ function RepairDetails() {
                     onChange={({target}) => setDescriptionInput(target.value)}
                 />
             </label>
-            <span>{`Total: R$ ${totalPrice.toFixed(2)}`}</span>
+            <span className="totalText">{`Total: R$ ${totalPrice.toFixed(2)}`}</span>
             <Link className="navitem" href="/">
                 <button 
                     type="button"
@@ -219,6 +226,7 @@ function RepairDetails() {
                 </button>
             </Link>
         </OficinaContainer>
+        </div>
     </Container>
   )
 }

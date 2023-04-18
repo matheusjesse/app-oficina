@@ -5,13 +5,13 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: start;
-    margin-top: 38px;
-    th {
+    margin-top: 38px;    
+    .thTag {
         text-align: start;
         width: 148px;
     }
 
-    table {
+    .tableTag {
         background: rgb(71,9,121);
         background: linear-gradient(90deg, rgba(71,9,121,1) 1%, rgba(61,69,158,1) 50%, rgba(130,168,251,1) 100%);   
         color: white;
@@ -20,12 +20,12 @@ const Container = styled.div`
         border-spacing: 0;
     }
 
-    td {
+    .tdTag {
         border-top: 1px solid white;
         height: 40px;
     }
 
-    td button {
+    .tdTag button {
         border: none;
         height: 28px;
         color: black;
