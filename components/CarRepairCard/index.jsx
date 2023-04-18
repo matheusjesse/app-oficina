@@ -1,6 +1,6 @@
 import React from 'react'
 import Container, {Title, PlusCircleIcon} from './style';
-import { Link } from '../../renderer/Link'
+import { Link } from '../../renderer/Link';
 
 function CarRepairCard() {
   return (

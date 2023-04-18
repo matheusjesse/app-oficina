@@ -8,9 +8,9 @@ import Container, {
     IconContainer
 } from './style';
 import DataContext from "../../context/DataContext";
+import { Link } from '../../renderer/Link'
 
 function RepairDetails() {
-
     const {
         currentClient,
         carSelected,
@@ -18,7 +18,7 @@ function RepairDetails() {
         setCarSelected,
         productsData,
     } = useContext(DataContext);
-
+    
     const [productInput, setProductInput] = useState("");
     const [orderCart, setOrderCart] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
@@ -110,7 +110,6 @@ function RepairDetails() {
         const newData = [...localData, orderData];
         localStorage.setItem("repairOrders", JSON.stringify(newData));
         closeDetails();
-        window.location.reload()
     }
 
     useEffect(() => {
@@ -210,13 +209,15 @@ function RepairDetails() {
                 />
             </label>
             <span>{`Total: R$ ${totalPrice.toFixed(2)}`}</span>
-            <button 
-                type="button"
-                disabled={confirmationDisabled}
-                onClick={finishorder}
-            >
-                Confirmar
-            </button>
+            <Link className="navitem" href="/">
+                <button 
+                    type="button"
+                    disabled={confirmationDisabled}
+                    onClick={finishorder}
+                >
+                    Confirmar
+                </button>
+            </Link>
         </OficinaContainer>
     </Container>
   )
