@@ -10,7 +10,7 @@ import Container, {
 import DataContext from "../../context/DataContext";
 
 function RepairDetails() {
-    
+
     const {
         currentClient,
         carSelected,
@@ -110,6 +110,7 @@ function RepairDetails() {
         const newData = [...localData, orderData];
         localStorage.setItem("repairOrders", JSON.stringify(newData));
         closeDetails();
+        window.location.reload()
     }
 
     useEffect(() => {

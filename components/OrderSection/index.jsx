@@ -16,8 +16,8 @@ function OrderSection() {
     <Container>
       {
         ordersData.length > 0 && (
-          ordersData.map((item) => 
-            <OrderCard data={item}/>          
+          ordersData.map((item, index) => 
+            <OrderCard key={index} data={item}/>          
           )
         )
       }

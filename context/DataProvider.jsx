@@ -9,6 +9,7 @@ function DataProvider({ children }) {
   const [notFound, setNotFound] = useState(true);
   const [carSelected, setCarSelected] = useState({});
   const [detailPage, setdetailPage] = useState(false);
+  const [statusSwapEnabled, setStatusSwapEnabled] = useState(false);
   const [productsData, setProductsData] = useState(productMock)
  
   const context = useMemo(() => ({
@@ -24,6 +25,8 @@ function DataProvider({ children }) {
     setdetailPage,
     productsData,
     setProductsData,
+    statusSwapEnabled, 
+    setStatusSwapEnabled
   }), [
     clientData,
     currentClient,
@@ -35,6 +38,9 @@ function DataProvider({ children }) {
     detailPage,
     setdetailPage,
     productsData,
+    statusSwapEnabled, 
+    setStatusSwapEnabled
+
   ]);
 
   return (

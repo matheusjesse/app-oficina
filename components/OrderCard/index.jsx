@@ -1,17 +1,23 @@
-import React, { useEffect } from 'react'
+import React, { useContext } from 'react'
 import Container, {
     Title,
     ClientContainer,
     ClientInfo,
     OficinaContainer,
 } from './style';
+import StatusSwap from '../StatusSwap';
+import DataContext from "../../context/DataContext";
 
 function OrderCard({data}) {
-
-    useEffect(() => {
-        console.log(data)
-    }, [])
-   
+    
+    const {
+        statusSwapEnabled, 
+        setStatusSwapEnabled
+    } = useContext(DataContext);
+    
+    const editOrder = () => {
+        setStatusSwapEnabled(true);
+    }
   return (
     <Container>
         <ClientContainer>
@@ -55,10 +61,16 @@ function OrderCard({data}) {
             }
             {
                 data.status === "pendente" && (
-                    <button type="button">
+                    <button 
+                        type="button"
+                        onClick={editOrder}
+                    >
                         Editar
                     </button>
                 )
+            }
+            {
+                statusSwapEnabled && <StatusSwap data={data}/>
             }
         </ OficinaContainer>
     </Container>
