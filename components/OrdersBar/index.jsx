@@ -16,7 +16,6 @@ function OrdersBar() {
             if(!localKey) localStorage.setItem("repairOrders", "[]");
             const localData = JSON.parse(localStorage.getItem("repairOrders"));
             const mechanicOrder = localData.filter(({mechanicName}) => mechanicName.toLowerCase().search(mechanicNameInput.toLowerCase()) > -1)
-            console.log(mechanicOrder)
             setMechanicOrder(mechanicOrder);
             setMechanicNameInput("")
         }

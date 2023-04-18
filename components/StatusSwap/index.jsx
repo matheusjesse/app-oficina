@@ -9,6 +9,7 @@ import Container, {
 } from './style';
 import DataContext from "../../context/DataContext";
 import { Link } from '../../renderer/Link';
+import { dateInfo, hourInfo } from '../../helpers/dateHourFunctions';
 
 function StatusSwap({data}) {
 
@@ -41,21 +42,7 @@ function StatusSwap({data}) {
             description,
             total
         } = data;
-        function addZero(i) {
-            if (i < 10) {i = "0" + i}
-            return i;
-        }
-        const date = new Date();
-        // Hora
-        const h = addZero(date.getHours());
-        const m = addZero(date.getMinutes());
-        const s = addZero(date.getSeconds());
-        const time = h + ":" + m + ":" + s;
-        //DATE
-        const yearCurrent = date.getFullYear();
-        const month = date.getMonth()+1;
-        const dia = date.getDate();
-        const resultDate = dia+"/"+month+"/"+yearCurrent;
+        
         const orderData = {
             id,
             name,
@@ -70,8 +57,8 @@ function StatusSwap({data}) {
                 hour:  data.startDate.hour,
             },
             finishDate: {
-                date: resultDate,
-                hour:  time,
+                date: dateInfo(),
+                hour:  hourInfo(),
             },          
             status: "finalizado",
             total,

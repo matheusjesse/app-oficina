@@ -9,7 +9,6 @@ function ClientSection() {
         currentClient,
         notFound,
         setCarSelected,
-        carSelected,
         detailPage,
         setdetailPage
     } = useContext(DataContext);

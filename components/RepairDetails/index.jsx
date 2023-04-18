@@ -9,6 +9,7 @@ import Container, {
 } from './style';
 import DataContext from "../../context/DataContext";
 import { Link } from '../../renderer/Link'
+import { dateInfo, hourInfo } from '../../helpers/dateHourFunctions';
 
 function RepairDetails() {
     const {
@@ -57,9 +58,7 @@ function RepairDetails() {
     }, [orderCart])    
 
     const totalWorkComission = (value) => {
-        if(value !== "" ){
-            setWorkCommission(parseFloat(value));
-        }
+        if(value !== "" ) setWorkCommission(parseFloat(value));
     }
 
     const totalValueCount = () => {
@@ -72,21 +71,6 @@ function RepairDetails() {
     const finishorder = () => {
         const { nome } = currentClient;
         const { modelo, ano} = carSelected;
-        function addZero(i) {
-            if (i < 10) {i = "0" + i}
-            return i;
-        }
-        const date = new Date();
-        // Hora
-        const h = addZero(date.getHours());
-        const m = addZero(date.getMinutes());
-        const s = addZero(date.getSeconds());
-        const time = h + ":" + m + ":" + s;
-        //DATE
-        const year = date.getFullYear();
-        const month = date.getMonth()+1;
-        const dia = date.getDate();
-        const resultDate = dia+"/"+month+"/"+year;
         const orderData = {
             id: Math.floor(Math.random() * 100000) + 1,
             name: nome,
@@ -97,8 +81,8 @@ function RepairDetails() {
             mechanicName,
             description: descriptionInput,
             startDate: {
-                date: resultDate,
-                hour:  time,
+                date: dateInfo(),
+                hour:  hourInfo(),
             },            
             status: "pendente",
             total: totalPrice,
@@ -120,7 +104,6 @@ function RepairDetails() {
             setConfirmationDisabled(!confirmationDisabled);
         }
     }, [comissionDisabled, mechanicName])   
-
 
   return (
     <Container>
@@ -145,25 +128,25 @@ function RepairDetails() {
                     value={mechanicName}
                     onChange={({target}) => setMechanicName(target.value)}
                 />
-            </label> 
-            <div className="partsAddSection">          
+            </label>
+            <div className="partsAddSection">       
                 <label htmlFor="products">
                     Peças:
-                    <input 
-                        type="text" 
-                        id="products" 
+                    <input
+                        type="text"
+                        id="products"
                         name="products"
                         onChange={({target}) => setProductInput(target.value)} 
                     />
                 </label>
-                <button 
+                <button
                     type="button"
                     onClick={addToCart}
                     className='buttonAdd'
                 >
                     Adicionar
                 </button>
-            </div> 
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -188,8 +171,8 @@ function RepairDetails() {
                 <label htmlFor="workCommission" className='commissionLabel'>
                     Mão de obra*
                     <input 
-                        type="number" 
-                        min="0.00" 
+                        type="number"
+                        min="0.00"
                         id="workCommission"
                         name="workCommission"
                         step="0.01"
@@ -197,7 +180,7 @@ function RepairDetails() {
                         onChange={({target}) => totalWorkComission(target.value)}
                     />
                 </label>
-                <button 
+                <button
                     type="button"
                     onClick={totalValueCount}
                     disabled={comissionDisabled}
@@ -209,15 +192,15 @@ function RepairDetails() {
             <label htmlFor="descriptionInfo">
                 Deiscrição Adicional
                 <input 
-                    type="text" 
-                    id="descriptionInfo" 
+                    type="text"
+                    id="descriptionInfo"
                     label="descriptionInfo"
                     onChange={({target}) => setDescriptionInput(target.value)}
                 />
             </label>
             <span className="totalText">{`Total: R$ ${totalPrice.toFixed(2)}`}</span>
             <Link className="navitem" href="/">
-                <button 
+                <button
                     type="button"
                     disabled={confirmationDisabled}
                     onClick={finishorder}
