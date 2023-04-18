@@ -1,7 +1,7 @@
 import React from 'react'
 import Container from './style';
 
-function OrderSection() {
+function OrderCard() {
    
   return (
     <Container>
@@ -10,4 +10,4 @@ function OrderSection() {
   )
 }
 
-export default OrderSection;
+export default OrderCard;
