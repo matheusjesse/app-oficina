@@ -46,7 +46,7 @@ function FindClientBar() {
                 Buscar
             </button>
         </Form>
-        <Text>Ou</Text>
+        <span>Ou</span>
         <button 
             type="button"            
         >
