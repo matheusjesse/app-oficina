@@ -96,8 +96,10 @@ function RepairDetails() {
             workCommission,
             mechanicName,
             description: descriptionInput,
-            data: resultDate,
-            hour:  time,
+            startDate: {
+                date: resultDate,
+                hour:  time,
+            },            
             status: "pendente",
             total: totalPrice,
         }

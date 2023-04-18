@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Container, {
     Title,
     ClientContainer,
@@ -7,6 +7,10 @@ import Container, {
 } from './style';
 
 function OrderCard({data}) {
+
+    useEffect(() => {
+        console.log(data)
+    }, [])
    
   return (
     <Container>
@@ -41,7 +45,21 @@ function OrderCard({data}) {
             </table>
             <span>{`Mão de obra: ${data.workCommission}`}</span>  
             <span>{`Deiscrição Adicional: ${data.description}`}</span>     
+            <span>{`Finalização: ${data.status}`}</span> 
+            <span>{`Início: ${data.startDate.date} | ${data.startDate.hour}`}</span>     
             <span>{`Total: R$ ${data.total.toFixed(2)}`}</span>
+            {
+                data.status === "finalizado" && (
+                    <span>{`Finalização: ${data.finishDate.date} | ${data.finishDate.hour}`}</span>     
+                )
+            }
+            {
+                data.status === "pendente" && (
+                    <button type="button">
+                        Editar
+                    </button>
+                )
+            }
         </ OficinaContainer>
     </Container>
   )

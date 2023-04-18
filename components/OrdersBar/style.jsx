@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import {Search} from '@styled-icons/evaicons-solid'
 
 const Container = styled.div`
-
+  margin-top: -120px;
+  margin-bottom: 22px;
 
 `
 
