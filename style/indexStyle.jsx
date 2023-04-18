@@ -12,5 +12,11 @@ const ContainerHome = styled.div`
     }
 `
 
+const CardContainer = styled.div`
+    display: flex;
+`
+
 export default ContainerHome;
+
+export {CardContainer}
 
