@@ -68,7 +68,7 @@ function RepairDetails() {
         }        
     }
 
-    const finishorder = () => {
+    const finishOrder = () => {
         const { nome } = currentClient;
         const { modelo, ano} = carSelected;
         const orderData = {
@@ -203,7 +203,7 @@ function RepairDetails() {
                 <button
                     type="button"
                     disabled={confirmationDisabled}
-                    onClick={finishorder}
+                    onClick={finishOrder}
                 >
                     Confirmar
                 </button>

@@ -73,4 +73,4 @@ function ClientSection() {
   )
 }
 
-export default ClientSection
+export default ClientSection;

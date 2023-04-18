@@ -21,30 +21,29 @@ function OrdersBar() {
         }
         if(mechanicNameInput === "") {
             setMechanicOrder([]);
-        }  
-
+        }
     }
 
   return (
     <Container>
         <div className="navMain">
-        <Title>Identificação de Consertos</Title>
-        <label htmlFor="mechanicName">
-            Nome do Mecânico:
-            <input 
-                type="text"
-                id="mechanicName"
-                name="mechanicName"
-                value={mechanicNameInput}
-                onChange={({target}) => setMechanicNameInput(target.value)}
-            />
-        </label>
-        <button 
-            type="button"
-            onClick={findMechanic}
-        >
-            <SearchIcon />
-        </button>
+            <Title>Identificação de Consertos</Title>
+            <label htmlFor="mechanicName">
+                Nome do Mecânico:
+                <input 
+                    type="text"
+                    id="mechanicName"
+                    name="mechanicName"
+                    value={mechanicNameInput}
+                    onChange={({target}) => setMechanicNameInput(target.value)}
+                />
+            </label>
+            <button
+                type="button"
+                onClick={findMechanic}
+            >
+                <SearchIcon />
+            </button>
         </div>
         <Link className="navitem" href="/">
             <span className='navHome'>Início</span>
@@ -53,4 +52,4 @@ function OrdersBar() {
   )
 }
 
-export default OrdersBar
+export default OrdersBar;

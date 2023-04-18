@@ -30,30 +30,30 @@ function FindClientBar() {
   return (
     <Container>
         <div className="navMain">
-        <Text>Achar Cliente</Text>
-        <Form>
-            <label htmlFor="clientName">
-                Nome:
-            <input 
-                type="text" 
-                id="clientName" 
-                name="clientName"
-                onChange={ ({target}) => setNameInput(target.value)}
-            />
-            </label>
-            <button 
-                type="button"
-                onClick={ findClient }
+            <Text>Achar Cliente</Text>
+            <Form>
+                <label htmlFor="clientName">
+                    Nome:
+                <input 
+                    type="text" 
+                    id="clientName" 
+                    name="clientName"
+                    onChange={ ({target}) => setNameInput(target.value)}
+                />
+                </label>
+                <button
+                    type="button"
+                    onClick={ findClient }
+                >
+                    Buscar
+                </button>
+            </Form>
+            <span>Ou</span>
+            <button
+                type="button"        
             >
-                Buscar
+                Scanear QR Code
             </button>
-        </Form>
-        <span>Ou</span>
-        <button 
-            type="button"            
-        >
-            Scanear QR Code
-        </button>
         </div>
         <Link className="navitem" href="/">
             <span className='navHome'>Início</span>
@@ -62,4 +62,4 @@ function FindClientBar() {
   )
 }
 
-export default FindClientBar
+export default FindClientBar;
