@@ -1,7 +1,8 @@
 import React from "react";
-import ContainerHome, {CardContainer} from '../../style/indexStyle';
+import ContainerHome, {CardContainer, imageContainer} from '../../style/indexStyle';
 import CarRepairCard from '../../components/CarRepairCard';
 import RepairListCard from '../../components/RepairListCard';
+import LogoUltracar from '../../assets/logoUltracar.png';
 
 export { Page }
 
@@ -9,7 +10,9 @@ function Page() {
   
   return (
     <ContainerHome>
-      <h1>Ultracar</h1>
+      <imageContainer>
+        <img src={LogoUltracar} alt="LogoUltracar" />
+      </imageContainer>
       <CardContainer>
         <CarRepairCard />
         <RepairListCard />

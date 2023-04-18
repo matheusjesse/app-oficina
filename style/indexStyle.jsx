@@ -10,13 +10,22 @@ const ContainerHome = styled.div`
     h1{
         color: black;
     }
+
+    img{
+        margin-top: -98px;
+        width: 400px;
+        height: 220px;
+    }
 `
 
 const CardContainer = styled.div`
     display: flex;
 `
+const imageContainer = styled.div`
+    
+`
 
 export default ContainerHome;
 
-export {CardContainer}
+export {CardContainer, imageContainer}
 
