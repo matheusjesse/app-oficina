@@ -8,6 +8,7 @@ import Container, {
     IconContainer
 } from './style';
 import DataContext from "../../context/DataContext";
+import { Link } from '../../renderer/Link';
 
 function StatusSwap({data}) {
 
@@ -132,12 +133,14 @@ function StatusSwap({data}) {
             }
             {
                 data.status === "pendente" && (
-                    <button 
-                        type="button"
-                        onClick={finishOrderButton}
-                    >
-                        Finalizar
-                    </button>
+                    <Link className="navitem" href="/">
+                        <button 
+                            type="button"
+                            onClick={finishOrderButton}
+                        >
+                            Finalizar
+                        </button>
+                    </Link>
                 )
             }
         </ OficinaContainer>
